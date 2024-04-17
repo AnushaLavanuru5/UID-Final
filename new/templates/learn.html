@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+let item = {{item|tojson}}
+</script>
+<script type="text/javascript" src="{{url_for('static', filename = 'learn.js') }}"></script>
+
+<b>{{item.title}}</b>
+<div><img src = "{{item.image}}"></div>
+<div> Ingredients:
+	<ul>
+		{% for name in item.Ingredients %}
+			<li>{{name}}</li>
+		{% endfor %}
+	</ul>
+</div>
+<div> Nutrition profile: {{item.About}}</div>
+
+<div class="col-sm-12">
+    <a href="/learn/{{id_next}}" class="btn btn-success btn-lg">Next</a>
+</div>
+
+<div class="col-sm-12">
+    <a href="/quiz/1" class="btn btn-success btn-lg">Quiz</a>
+</div>
+
+{% endblock %}

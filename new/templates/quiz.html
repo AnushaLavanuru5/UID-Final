@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+let item = {{item|tojson}}
+</script>
+	<div class="app">
+		<h1>Simple quiz</h1>
+		<div class="quiz">
+			<h2 id="question">{{item.question}}</h2>
+			<div id="answer-buttons">
+				<button class="btn" onclick="onclickquiz({{item.id}}, 
+				'option1')">{{item.option1}}</button>
+				<button class="btn" onclick="onclickquiz({{item.id}}, 
+				'option2')">{{item.option2}}</button>
+				<button class="btn" onclick="onclickquiz({{item.id}}, 
+				'option3')">{{item.option3}}</button>
+				<button class="btn" onclick="onclickquiz({{item.id}}, 
+				'option4')">{{item.option4}}</button>
+		</div>
+	</div>
+		<div class="col-sm-12">
+    <a href="/quiz/{{quiz_id_next}}" class="btn btn-success btn-lg">Next</a>
+</div>
+</div>
+{% endblock %}
